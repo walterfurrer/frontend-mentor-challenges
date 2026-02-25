@@ -1,0 +1,5 @@
+{
+  "experimentalTailwindcss": {
+    "config": "./src/tailwind.config.ts"
+  }
+}
