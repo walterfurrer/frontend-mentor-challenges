@@ -10,33 +10,69 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRouteImport } from './routes/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component'
+import { Route as FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRouteImport } from './routes/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute =
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRouteImport.update(
+    {
+      id: '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component',
+      path: '/front-end-mentor-challenges/qr-code-component',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
+const FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute =
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRouteImport.update(
+    {
+      id: '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card',
+      path: '/front-end-mentor-challenges/blog-preview-card',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/front-end-mentor-challenges/blog-preview-card': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute
+  '/front-end-mentor-challenges/qr-code-component': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/front-end-mentor-challenges/blog-preview-card': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute
+  '/front-end-mentor-challenges/qr-code-component': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute
+  '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component': typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/front-end-mentor-challenges/blog-preview-card'
+    | '/front-end-mentor-challenges/qr-code-component'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/front-end-mentor-challenges/blog-preview-card'
+    | '/front-end-mentor-challenges/qr-code-component'
+  id:
+    | '__root__'
+    | '/'
+    | '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card'
+    | '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute: typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute: typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +84,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component': {
+      id: '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_qr-code-component/qr-code-component'
+      path: '/front-end-mentor-challenges/qr-code-component'
+      fullPath: '/front-end-mentor-challenges/qr-code-component'
+      preLoaderRoute: typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card': {
+      id: '/front-end-mentor-challenges/_getting-started-with-frontend-mentor/_blog-preview-card/blog-preview-card'
+      path: '/front-end-mentor-challenges/blog-preview-card'
+      fullPath: '/front-end-mentor-challenges/blog-preview-card'
+      preLoaderRoute: typeof FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute:
+    FrontEndMentorChallengesGettingStartedWithFrontendMentorBlogPreviewCardBlogPreviewCardRoute,
+  FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute:
+    FrontEndMentorChallengesGettingStartedWithFrontendMentorQrCodeComponentQrCodeComponentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
